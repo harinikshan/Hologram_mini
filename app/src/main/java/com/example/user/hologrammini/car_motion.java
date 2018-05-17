@@ -56,6 +56,7 @@ public class car_motion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+        
         setContentView(R.layout.activity_car_motion);
         ImageView carimageView = (ImageView) findViewById(R.id.carimageView);
 

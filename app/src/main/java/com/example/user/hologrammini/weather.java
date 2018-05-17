@@ -3,6 +3,7 @@ package com.example.user.hologrammini;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.location.Address;
@@ -11,6 +12,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -32,53 +34,12 @@ public class weather extends AppCompatActivity  {
     TextView cityField, detailsField, currentTemperatureField, humidity_field, pressure_field, weatherIcon, updatedField;
 
     Typeface weatherFont;
-    LocationManager locationManager;
 
-    LocationListener locationListener;
-    String longitude;
-    double latitude;
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-            startListening();
 
-        }
 
-    }
 
-    public void startListening() {
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-
-            locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
-        }
-
-    }
-
-    public void updateLocationInfo(Location location) {
-
-        Log.i("LocationInfo", location.toString());
-
-        Function.placeIdTask asyncTask =new Function.placeIdTask(new Function.AsyncResponse() {
-            public void processFinish(String weather_city, String weather_description, String weather_temperature, String weather_humidity, String weather_pressure, String weather_updatedOn, String weather_iconText, String sun_rise) {
-
-                cityField.setText(weather_city);
-                updatedField.setText(weather_updatedOn);
-                detailsField.setText(weather_description);
-                currentTemperatureField.setText(weather_temperature);
-                humidity_field.setText("Humidity: "+weather_humidity);
-                pressure_field.setText("Pressure: "+weather_pressure);
-                weatherIcon.setText(Html.fromHtml(weather_iconText));
-
-            }
-        });
-        asyncTask.execute(String.valueOf(location.getLatitude()), String.valueOf(location.getLongitude())); //  asyncTask.execute("Latitude", "Longitude")12.9214914,77.6140386
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,61 +59,35 @@ public class weather extends AppCompatActivity  {
         weatherIcon = (TextView)findViewById(R.id.weather_icon);
         weatherIcon.setTypeface(weatherFont);
 
+        Function.placeIdTask asyncTask =new Function.placeIdTask(new Function.AsyncResponse() {
+            public void processFinish(String weather_city, String weather_description, String weather_temperature, String weather_humidity, String weather_pressure, String weather_updatedOn, String weather_iconText, String sun_rise) {
 
-
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-
-                updateLocationInfo(location);
-
-            }
-
-            @Override
-            public void onStatusChanged(String s, int i, Bundle bundle) {
+                cityField.setText(weather_city);
+                updatedField.setText(weather_updatedOn);
+                detailsField.setText(weather_description);
+                currentTemperatureField.setText(weather_temperature);
+                humidity_field.setText("Humidity: "+weather_humidity);
+                pressure_field.setText("Pressure: "+weather_pressure);
+                weatherIcon.setText(Html.fromHtml(weather_iconText));
 
             }
+        });
+        asyncTask.execute("12.9214914","77.6140386"); //  asyncTask.execute("Latitude", "Longitude")12.9214914,77.6140386
 
-            @Override
-            public void onProviderEnabled(String s) {
-
-            }
+        Handler mHandler1 = new Handler();
+        mHandler1.postDelayed(new Runnable() {
 
             @Override
-            public void onProviderDisabled(String s) {
+            public void run() {
 
-            }
-        };
+                Intent i = new Intent(weather.this, SplashScreen.class);
 
-        if (Build.VERSION.SDK_INT < 23) {
 
-            startListening();
-
-        } else {
-
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-
-            } else {
-
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-
-                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
-                if (location != null) {
-
-                    updateLocationInfo(location);
-
-                }
+                startActivity(i);
 
             }
 
-        }
-
-
+        }, 15000L);
 
     }
 
