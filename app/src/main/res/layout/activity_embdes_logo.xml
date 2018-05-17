@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/embdes_background">
+
+
+    <ImageView
+        android:id="@+id/logoimageView"
+        android:layout_width="119dp"
+        android:layout_height="107dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="94dp"
+        android:src="@drawable/spedometer" />
+
+
+    <TextView
+        android:id="@+id/num1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="141dp"
+        android:text="0"
+        android:textColor="?attr/colorError" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/logoimageView3"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/logoimageView2"
+        android:layout_below="@+id/tv2"
+        android:textColor="@android:color/holo_red_dark" />
+
+
+</RelativeLayout>

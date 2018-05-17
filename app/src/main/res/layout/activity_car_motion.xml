@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+
+    <ImageView
+        android:id="@+id/carimageView5"
+        android:layout_width="101dp"
+        android:layout_height="81dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="83dp"
+        android:layout_marginTop="156dp"
+        android:src="@drawable/car_top" />
+
+    <ImageView
+        android:id="@+id/carimageView"
+        android:layout_width="101dp"
+        android:layout_height="109dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="112dp"
+        android:alpha="0"
+        android:rotation="90"
+        android:src="@drawable/car_top" />
+
+    <TextView
+        android:id="@+id/bl1"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/carimageView"
+        android:layout_alignStart="@+id/carimageView"
+        android:alpha="0"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <TextView
+        android:id="@+id/br1"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/carimageView"
+        android:layout_alignEnd="@+id/carimageView"
+        android:alpha="0"
+        android:rotation="360"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <TextView
+        android:id="@+id/fr1"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/carimageView"
+        android:layout_alignTop="@+id/carimageView"
+        android:alpha="0"
+        android:rotation="360"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <TextView
+        android:id="@+id/fl1"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/carimageView"
+        android:layout_alignTop="@+id/carimageView"
+        android:alpha="0"
+        android:rotation="360"
+        android:textColor="@android:color/holo_red_dark" />
+
+
+</RelativeLayout>
