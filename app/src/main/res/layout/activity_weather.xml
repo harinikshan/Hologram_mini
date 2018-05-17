@@ -67,7 +67,7 @@
         android:rotationY="180"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#FFFFFF"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
 
     <TextView
@@ -79,7 +79,7 @@
         android:rotationY="180"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#FFFFFF"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
 
     <TextView
@@ -91,7 +91,7 @@
         android:rotationY="180"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#FFFFFF"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
 
 </RelativeLayout>
