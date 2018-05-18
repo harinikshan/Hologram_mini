@@ -33,7 +33,8 @@
         android:layout_alignBottom="@+id/carimageView"
         android:layout_alignStart="@+id/carimageView"
         android:alpha="0"
-        android:textColor="@android:color/holo_red_dark" />
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="@android:color/background_light" />
 
     <TextView
         android:id="@+id/br1"
@@ -43,7 +44,8 @@
         android:layout_alignEnd="@+id/carimageView"
         android:alpha="0"
         android:rotation="360"
-        android:textColor="@android:color/holo_red_dark" />
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="@android:color/background_light" />
 
     <TextView
         android:id="@+id/fr1"
@@ -53,7 +55,8 @@
         android:layout_alignTop="@+id/carimageView"
         android:alpha="0"
         android:rotation="360"
-        android:textColor="@android:color/holo_red_dark" />
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="@android:color/background_light" />
 
     <TextView
         android:id="@+id/fl1"
@@ -63,7 +66,8 @@
         android:layout_alignTop="@+id/carimageView"
         android:alpha="0"
         android:rotation="360"
-        android:textColor="@android:color/holo_red_dark" />
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="@android:color/background_light" />
 
 
 </RelativeLayout>
